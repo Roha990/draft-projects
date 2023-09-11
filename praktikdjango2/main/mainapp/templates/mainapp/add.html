@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    <label for="content">content</label>
+  <input type="text" id="content" name="content" required>
+  <input type="submit" value="Отправить">
+    {% csrf_token %}
+</form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pl-container {
+            text-align: center;
+            border: 1px solid black;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .pl-element {
+            display: grid;
+            border: 1px solid black;
+        }
+        .pl-element h2 {
+            font-weight: normal;
+        }
+        .pl-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    </style>
+</head>
+<body>
+    {% for product in products %}
+        <p> {{ product.name }} </p>
+        <p> {{ product.amount }} </p>
+    {% endfor %}
+    <div class="pl-container">
+        <h1>My products</h1>
+        <div class="pl-grid">
+            <div class="pl-element">
+                <h2>Product Name</h2>
+                <p>Amount: </p>
+            </div>
+            <div class="pl-element">
+                <h2>Product Name</h2>
+                <p>Amount: </p>
+            </div>
+            <div class="pl-element">
+                <h2>Product Name</h2>
+                <p>Amount: </p>
+            </div>
+            <div class="pl-element">
+                <h2>Product Name</h2>
+                <p>Amount: </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

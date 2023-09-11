@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Product</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-3 mb-5">{{ product_name }}</h1>
+      <form method="post" action="">
+        <div class="form-group">
+          <label for="name">{{ field_name }}:</label>
+          <input type="text" class="form-control" id="name" name="field_value">
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" onclick="history.back()">Back</button>
+          <div>
+            <button type="submit" class="btn btn-danger ml-2" onclick="change_state('delete')">Delete</button>
+            <button type="submit" class="btn btn-primary ml-2" onclick="change_state('submit')">Submit</button>
+            <input type="hidden" id="button-hid" name="button_clicked" value="">
+          </div>
+        </div>
+        {% csrf_token %}
+      </form>
+    </div>
+    <script>
+      function change_state(value){
+        document.getElementById("button-hid").value = value;
+      }
+
+    </script>
+
+  </body>
+</html>

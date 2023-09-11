@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>New product</title>
+    <style>
+      .pf-container {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid black;
+      }
+      .pf-form {
+        text-align: justify-all;
+      }
+      .pf-product {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        width: 25%;
+      }
+      .pf-element {
+        padding-bottom: 10px;
+      }
+      .pf-textinput {
+        margin-right: 5px;
+      }
+      #product-fields {
+        padding-bottom: 10px;
+      }
+    </style>
+    <script>
+      var current_id = 1
+      function addProductField() {
+        current_id = current_id + 1
+        var productFields = document.getElementById('product-fields');
+        var newField = document.createElement('div');
+        newField.className = "pf-element";
+        newField.innerHTML = '<label>Field name</label> <input class="pf-textinput" id="field_"+id type="text" oninput="update_name(this.id, this.value)" >' +
+                '<label>Value:</label> <input class="pf-textinput" id="value_"+id type="text">' +
+                '<button onclick="removeProductField(this)">Remove</button>';
+        productFields.appendChild(newField);
+      }
+      function removeProductField(button) {
+        var field = button.parentNode;
+        field.parentNode.removeChild(field);
+      }
+      function update_name(field_id, value){
+        var value_field = document.getElementById("field_" + field_id.split("_")[1]);
+        value_field.setAttribute('name', value);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pf-container">
+    <h1 class="pf-heading">New Product Form</h1>
+    <form class="pf-form" method="post" action="">
+      <div id="product-fields">
+        <div class="pf-product">
+          <div class="pf-element">
+            <label>Name:</label>
+            <input type="text" name="product_name">
+          </div>
+          <div class="pf-element">
+            <label>Amount:</label>
+            <input type="number" name="product_amount">
+          </div>
+        </div>
+      </div>
+      <button type="button" onclick="addProductField()">Add Field</button>
+      <br><br>
+      <input type="submit" value="Add product">
+    </form>
+    </div>
+  </body>
+</html>

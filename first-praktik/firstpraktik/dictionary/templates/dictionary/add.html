@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{%url 'index'%}">Главная</a>
+<form action="" method="post">
+  <label for="fword">fword</label>
+  <input type="text" id="fword" name="fword" required>
+  <br>
+  <label for="sword">sword</label>
+  <input type="text" id="sword" name="sword" required>
+  <br>
+  <input type="submit" value="Отправить">
+  {% csrf_token %}
+</form>
+</body>
+</html>
